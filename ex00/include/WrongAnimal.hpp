@@ -15,13 +15,13 @@
 
 #include <iostream>
 
-class Animal{
+class WrongAnimal{
 public:
-    Animal();
-    Animal(const Animal &src);
-    ~Animal();
+    WrongAnimal();
+    WrongAnimal(const WrongAnimal &src);
+    ~WrongAnimal();
 
-    Animal &operator=(Animal const &copy);
+    WrongAnimal &operator=(WrongAnimal const &copy);
 
     void setType(const std::string type);
     std::string const getType() const;
@@ -31,7 +31,7 @@ protected:
     std::string type;
 };
 
-std::ostream &operator<<(std::ostream &ostream, const Animal &instance);
+std::ostream &operator<<(std::ostream &ostream, const WrongAnimal &instance);
 
 #endif
 

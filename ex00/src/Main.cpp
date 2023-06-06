@@ -12,6 +12,7 @@
 
 #include "../include/Cat.hpp"
 #include "../include/Dog.hpp"
+#include "../include/WrongCat.hpp"
 
 int main()
 {
@@ -19,6 +20,7 @@ int main()
     Cat c;
     Dog d;
 
+    std::cout << " ||||| Les mignons petit animeaux ! ||||| " << std::endl;
     std::cout << " ----- Animal ----------------------------------------------- " << std::endl;
     std::cout << a.getType() << std::endl;
     a.makeSound();
@@ -29,5 +31,10 @@ int main()
     std::cout << d.getType() << std::endl;
     d.makeSound();
     std::cout << " ------------------------------------------------------------ " << std::endl;
+
+    std::cout << " ||||| les erreurs de la nature ! ||||| " << std::endl;
+
+    WrongCat wc;
+    wc.makeSound();
     return (0);
 }

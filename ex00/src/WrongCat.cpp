@@ -12,27 +12,27 @@
 
 #include "../include/WrongCat.hpp"
 
-Cat::Cat() {
-    this->setType("Cat");
-    std::cout << "[Cat] vient d'etre cree !" << std::endl;
+WrongCat::WrongCat() {
+    this->setType("WrongCat");
+    std::cout << "[WrongCat] vient d'etre cree !" << std::endl;
 }
 
-Cat::Cat(const Cat &src): Animal()
+WrongCat::WrongCat(const WrongCat &src): WrongAnimal()
 {
-    std::cout << "Copy constructor for Cat called" << std::endl;
+    std::cout << "Copy constructor for WrongCat called" << std::endl;
     *this = src;
     return;
 }
 
-Cat::~Cat() {
-    std::cout << "[Cat] vient d'etre suprime !" << std::endl;
+WrongCat::~WrongCat() {
+    std::cout << "[WrongCat] vient d'etre suprime !" << std::endl;
 }
 
-void Cat::makeSound() {
-    std::cout << "miaou" << std::endl;
+void WrongCat::makeSound() {
+    std::cout << "miagrrrrrrrrr" << std::endl;
 }
 
-Cat &Cat::operator=(const Cat &copy)
+WrongCat &WrongCat::operator=(const WrongCat &copy)
 {
     this->type = copy.type;
     return (*this);

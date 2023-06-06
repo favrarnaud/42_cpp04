@@ -12,41 +12,43 @@
 
 #include "../include/WrongAnimal.hpp"
 
-Animal::Animal() {
-    this->type = "Une erreur de la nature";
-    std::cout << "[Animal] vient d'etre cree !" << std::endl;
+WrongAnimal::WrongAnimal() {
+    this->type = "Une double erreur de la nature";
+    std::cout << "[WrongAnimal] vient d'etre cree !" << std::endl;
 }
 
-Animal::Animal(const Animal &src)
+WrongAnimal::WrongAnimal(const WrongAnimal &src)
 {
-    std::cout << "Copy constructor for Animal called" << std::endl;
+    std::cout << "Copy constructor for WrongAnimal called" << std::endl;
     *this = src;
     return;
 }
 
-Animal::~Animal() {
-    std::cout << "[Animal] vient d'etre suprime !" << std::endl;
+WrongAnimal::~WrongAnimal() {
+    std::cout << "[WrongAnimal] vient d'etre suprime !" << std::endl;
 }
 
-Animal &Animal::operator=(Animal const &copy)
+WrongAnimal &WrongAnimal::operator=(WrongAnimal const &copy)
 {
     this->type = copy.type;
     return (*this);
 }
 
-void Animal::makeSound() {}
+void WrongAnimal::makeSound() {
+    std::cout << "grummmmppppffff" << std::endl;
+}
 
-void Animal::setType(std::string value)
+void WrongAnimal::setType(std::string value)
 {
     this->type = value;
 }
 
-std::string const Animal::getType() const
+std::string const WrongAnimal::getType() const
 {
     return (this->type);
 }
 
-std::ostream	&operator<<(std::ostream &ostream, const Animal &instance)
+std::ostream	&operator<<(std::ostream &ostream, const WrongAnimal &instance)
 {
     ostream << instance.getType();
     return ostream;
