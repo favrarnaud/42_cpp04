@@ -25,7 +25,9 @@ ENDCOLOR = \033[0;39m
 SRC_FILES	=	Main \
 				Animal \
 				Cat \
-				Dog
+				Dog \
+				WrongAnimal \
+				WrongCat
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .cpp, $(SRC_FILES)))
 OBJ			= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
