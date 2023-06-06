@@ -28,7 +28,7 @@ WrongCat::~WrongCat() {
     std::cout << "[WrongCat] vient d'etre suprime !" << std::endl;
 }
 
-void WrongCat::makeSound() {
+void WrongCat::makeSound(void) const{
     std::cout << "miagrrrrrrrrr" << std::endl;
 }
 

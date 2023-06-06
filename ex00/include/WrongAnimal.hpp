@@ -26,7 +26,7 @@ public:
     void setType(const std::string type);
     std::string const getType() const;
 
-    void makeSound();
+    void makeSound(void) const;
 protected:
     std::string type;
 };

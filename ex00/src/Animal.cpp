@@ -34,7 +34,7 @@ Animal &Animal::operator=(Animal const &copy)
     return (*this);
 }
 
-void Animal::makeSound() {}
+void Animal::makeSound() const {}
 
 void Animal::setType(std::string value)
 {

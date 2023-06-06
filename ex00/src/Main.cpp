@@ -16,25 +16,36 @@
 
 int main()
 {
-    Animal a;
-    Cat c;
-    Dog d;
+    const Animal *a = new Animal();
+    const Cat *c = new Cat();
+    const Dog *d = new Dog();
 
     std::cout << " ||||| Les mignons petit animeaux ! ||||| " << std::endl;
     std::cout << " ----- Animal ----------------------------------------------- " << std::endl;
-    std::cout << a.getType() << std::endl;
-    a.makeSound();
+    std::cout << a->getType() << std::endl;
+    a->makeSound();
     std::cout << " ----- Cat -------------------------------------------------- " << std::endl;
-    std::cout << c.getType() << std::endl;
-    c.makeSound();
+    std::cout << c->getType() << std::endl;
+    c->makeSound();
     std::cout << " ----- Dog -------------------------------------------------- " << std::endl;
-    std::cout << d.getType() << std::endl;
-    d.makeSound();
+    std::cout << d->getType() << std::endl;
+    d->makeSound();
     std::cout << " ------------------------------------------------------------ " << std::endl;
+
+    delete a;
+    delete c;
+    delete d;
 
     std::cout << " ||||| les erreurs de la nature ! ||||| " << std::endl;
 
-    WrongCat wc;
-    wc.makeSound();
+    const WrongAnimal *wa = new WrongAnimal();
+    const WrongCat *wc = new WrongCat();
+
+    wa->makeSound();
+    wc->makeSound();
+
+    delete wa;
+    delete wc;
+
     return (0);
 }

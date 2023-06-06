@@ -23,7 +23,7 @@ public:
 
     Cat &operator=(Cat const &copy);
 
-    void virtual makeSound();
+    void makeSound() const;
 private:
 };
 

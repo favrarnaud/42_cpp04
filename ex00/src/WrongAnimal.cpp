@@ -34,7 +34,7 @@ WrongAnimal &WrongAnimal::operator=(WrongAnimal const &copy)
     return (*this);
 }
 
-void WrongAnimal::makeSound() {
+void WrongAnimal::makeSound(void) const {
     std::cout << "grummmmppppffff" << std::endl;
 }
 

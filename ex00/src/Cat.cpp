@@ -28,7 +28,7 @@ Cat::~Cat() {
     std::cout << "[Cat] vient d'etre suprime !" << std::endl;
 }
 
-void Cat::makeSound() {
+void Cat::makeSound() const {
     std::cout << "miaou" << std::endl;
 }
 

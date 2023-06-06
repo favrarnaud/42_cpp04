@@ -19,14 +19,14 @@ class Animal{
 public:
     Animal();
     Animal(const Animal &src);
-    ~Animal();
+    virtual ~Animal();
 
     Animal &operator=(Animal const &copy);
 
     void setType(const std::string type);
     std::string const getType() const;
 
-    void virtual makeSound();
+    void virtual makeSound() const;
 protected:
     std::string type;
 };

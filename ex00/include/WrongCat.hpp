@@ -23,7 +23,7 @@ public:
 
     WrongCat &operator=(WrongCat const &copy);
 
-    void makeSound();
+    void makeSound(void) const;
 private:
 };
 

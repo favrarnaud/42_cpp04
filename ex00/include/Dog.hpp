@@ -23,7 +23,7 @@ public:
 
     Dog &operator=(Dog const &copy);
 
-    void makeSound();
+    void makeSound() const;
 private:
 };
 

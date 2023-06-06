@@ -28,7 +28,7 @@ Dog::~Dog() {
     std::cout << "[Dog] vient d'etre suprime !" << std::endl;
 }
 
-void Dog::makeSound() {
+void Dog::makeSound() const {
     std::cout << "ouaf" << std::endl;
 }
 
