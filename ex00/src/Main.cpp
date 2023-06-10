@@ -47,5 +47,5 @@ int main()
     delete wa;
     delete wc;
 
-    return (0);
+	return (0);
 }

@@ -14,6 +14,7 @@
 #define ANIMAL_HPP
 
 #include <iostream>
+#include "../include/Brain.hpp"
 
 class Animal{
 public:

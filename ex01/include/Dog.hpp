@@ -25,6 +25,7 @@ public:
 
     void makeSound() const;
 private:
+	Brain *brain;
 };
 
 #endif

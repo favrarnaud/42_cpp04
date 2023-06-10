@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= Animal
+NAME			= Brainimal
 INCLUDE			= ./include
 SRC_DIR			= src/
 OBJ_DIR			= obj/
@@ -27,7 +27,8 @@ SRC_FILES	=	Main \
 				Cat \
 				Dog \
 				WrongAnimal \
-				WrongCat
+				WrongCat \
+				Brain
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .cpp, $(SRC_FILES)))
 OBJ			= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))

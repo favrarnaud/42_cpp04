@@ -14,6 +14,7 @@
 
 Dog::Dog() {
     this->setType("Dog");
+	this->brain = new Brain();
     std::cout << "[Dog] vient d'etre cree !" << std::endl;
 }
 
@@ -26,6 +27,7 @@ Dog::Dog(const Dog &src): Animal()
 
 Dog::~Dog() {
     std::cout << "[Dog] vient d'etre suprime !" << std::endl;
+	delete this->brain;
 }
 
 void Dog::makeSound() const {
@@ -34,6 +36,9 @@ void Dog::makeSound() const {
 
 Dog &Dog::operator=(const Dog &copy)
 {
+	if (this->brain)
+		delete (this->brain);
+	this->brain = new Brain();
     this->type = copy.type;
     return (*this);
 }
