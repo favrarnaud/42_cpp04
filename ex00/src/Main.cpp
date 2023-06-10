@@ -17,8 +17,8 @@
 int main()
 {
     const Animal *a = new Animal();
-    const Cat *c = new Cat();
-    const Dog *d = new Dog();
+    const Animal *c = new Cat();
+    const Animal *d = new Dog();
 
     std::cout << " ||||| Les mignons petit animeaux ! ||||| " << std::endl;
     std::cout << " ----- Animal ----------------------------------------------- " << std::endl;
@@ -39,7 +39,7 @@ int main()
     std::cout << " ||||| les erreurs de la nature ! ||||| " << std::endl;
 
     const WrongAnimal *wa = new WrongAnimal();
-    const WrongCat *wc = new WrongCat();
+    const WrongAnimal *wc = new WrongCat();
 
     wa->makeSound();
     wc->makeSound();
