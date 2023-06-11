@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= Abstranimal
+NAME			= Harry
 INCLUDE			= ./include
 SRC_DIR			= src/
 OBJ_DIR			= obj/
@@ -23,12 +23,10 @@ YELLOW = \033[0;93m
 ENDCOLOR = \033[0;39m
 
 SRC_FILES	=	Main \
-				A_Animal \
-				Cat \
-				Dog \
-				WrongAnimal \
-				WrongCat \
-				Brain
+				A_Materia \
+				Materia_Ice \
+				Materia_Cure \
+				Character
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .cpp, $(SRC_FILES)))
 OBJ			= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))

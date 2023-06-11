@@ -15,7 +15,7 @@ INCLUDE			= ./include
 SRC_DIR			= src/
 OBJ_DIR			= obj/
 CC				= g++
-FLAGS			= -Wall -Werror -Wextra -std=c++98 -Wshadow
+FLAGS			= -Wall -Werror -Wextra -std=c++98
 RM				= rm -rf
 
 GREEN = \033[0;92m
