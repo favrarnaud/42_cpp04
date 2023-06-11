@@ -16,8 +16,8 @@
 
 int main()
 {
-	const Animal *cat = new Cat();
-	const Animal *dog = new Dog();
+	const Cat *cat = new Cat();
+	const Dog *dog = new Dog();
 
 	delete dog;
 	delete cat;
