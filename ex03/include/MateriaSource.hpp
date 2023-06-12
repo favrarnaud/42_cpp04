@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Materia_Ice.hpp                                    :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afavre <afavre@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/11 18:04:38 by arnaud            #+#    #+#             */
-/*   Updated: 2023/06/11 18:05:03 by arnaud           ###   ########.fr       */
+/*   Created: 2023/06/12 18:14:43 by afavre            #+#    #+#             */
+/*   Updated: 2023/06/12 18:14:48 by afavre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MATERIA_ICE_HPP
-#define MATERIA_ICE_HPP
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-#include "A_Materia.hpp"
+#include "IMateriaSource.hpp"
 
-class Materia_Ice : public A_Materia{
-public:
-	Materia_Ice();
-	~Materia_Ice();
-
-	Materia_Ice *clone() const;
-	void use(I_Character &target);
+class MateriaSource : public IMateriaSource
+{
+	public:
+		MateriaSource();
+		MateriaSource(MateriaSource const & ref);
+		~MateriaSource();
+		MateriaSource & operator=(MateriaSource const & ref);
+		void learnMateria(AMateria *m);
+		AMateria* createMateria(std::string const & type);
+	private:
+		AMateria	*_inventory[4];
 };
 
 #endif

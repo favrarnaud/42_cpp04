@@ -5,63 +5,108 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: afavre <afavre@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/11 18:04:38 by arnaud            #+#    #+#             */
-/*   Updated: 2023/06/11 18:05:03 by arnaud           ###   ########.fr       */
+/*   Created: 2023/06/12 18:15:24 by afavre            #+#    #+#             */
+/*   Updated: 2023/06/12 18:15:28 by afavre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Character.hpp"
 
-Character::Character(std::string name) {
-	this->name = name;
-	std::cout << "naissance de " << this->name << std::endl;
+Character::Character(std::string name) : _name(name)
+{
+	std::cout << "A character named \"" << _name << "\" was created\n";
+	for(int i = 0; i < 4; i++)
+	{
+		this->_inventory[i] = 0;
+	}
+}
+
+Character::~Character()
+{
 	for (int i = 0; i < 4; i++)
 	{
-		this->inventory[i] = 0;
+		if (this->_inventory[i])
+			delete this->_inventory[i];
 	}
+	std::cout << "Character named " << this->_name << " was destroyed\n";
 }
 
-Character::~Character() {
-	std::cout << "mort de " << this->name << std::endl;
+std::string const & Character::getName() const
+{
+	return (this->_name);
 }
 
-std::string const &Character::getName() const {
-	return (this->name);
-}
-
-void Character::equip(A_Materia *materia) {
-	if (!materia)
+Character::Character(Character const & ref) : _name(ref.getName() + "_copy")
+{
+	for(int i = 0; i < 4; i++)
 	{
-		std::cout << this->name << " ne comprend pas pourquoi il doit equiper de l'air !" << std::endl;
-		return;
+		// Deep copy!
+		if ((ref._inventory)[i])
+			(this->_inventory)[i] = (ref._inventory[i])->clone();
 	}
-	for (int i = 0; i < 4; i++)
-	{
-		if (this->inventory[i] == NULL)
-		{
-			std::cout << this->name << " equipe la materia " << materia->getType() << " a l'emplacement " << i << "." << std::endl;
-			this->inventory[i] = materia;
-			return;
-		}
-	}
-	std::cout << "l'inventaire de " << this->name << " est deja plein !" << std::endl;
+	std::cout << "A character named " << _name << " was created from copy of " << ref._name << "\n";
 }
 
-void Character::unequip(int index) {
-	if (this->inventory[index] != NULL)
+Character & Character::operator=(Character const & ref)
+{
+	for(int i = 0; i < 4; i++)
 	{
-		std::cout << this->name << " desequipe la materia " << this->inventory[index]->getType() << std::endl;
-		this->inventory[index] = 0;
+		if (this->_inventory[i])
+			delete this->_inventory[i];
+		if (ref._inventory[i])
+			this->_inventory[i] = (ref._inventory[i])->clone();
 	}
+	return (*this);
+}
+
+void Character::equip(AMateria* m)
+{
+	int i = 0;
+
+	if (!m)
+	{
+		std::cout << this->_name << " tried to equip nothing and it did nothing\n";
+		return ;
+	}
+	while ((this->_inventory)[i] != 0 && i < 4)
+		i++;
+	if (i >= 4)
+	{
+		std::cout << this->_name << " can't equip more than 4 Materia";
+		return ;
+	}
+	(this->_inventory)[i] = m;
+	std::cout << this->_name << " equipped materia " << m->getType() << " in slot " << i << "\n";
+}
+
+void Character::unequip(int idx)
+{
+	if (idx < 0 || idx >= 4)
+		std::cout << this->_name << " tried to unequip nothing at slot " << idx << " and it did nothing\n";
+	else if (!(this->_inventory)[idx])
+		std::cout << this->_name << " has nothing equipped at slot " << idx << " so he can't unequip it\n";
 	else
-		std::cout << "Aucune materia na ete equiper ici !" << std::endl;
+	{
+		AMateria *ptr = (this->_inventory)[idx];
+		std::cout << this->_name << " unequipped " << ptr->getType() << " at slot "<< idx << "\n";
+		(this->_inventory)[idx] = 0;
+	}
 }
 
-void Character::use(int index, I_Character &target) {
-	(void)index;
-	(void)target;
-	if (!this->inventory[index])
-		std::cout << this->name << " ne veut pas taper sans materia !" << std::endl;
-	else
-		this->inventory[index]->use(target);
+void Character::use(int idx, ICharacter& target)
+{
+	std::string	name = this->getName();
+
+	if (idx < 0 || idx >= 4 || !(this->_inventory)[idx])
+	{
+		std::cout << "Nothing found to use at index " << idx << std::endl;
+		return ;
+	}
+	std::cout << name;
+	((this->_inventory)[idx])->use(target);
+}
+
+AMateria	*Character::getMateriaFromInventory(int idx)
+{
+	return (this->_inventory)[idx];
 }

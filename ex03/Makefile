@@ -22,11 +22,13 @@ GREEN = \033[0;92m
 YELLOW = \033[0;93m
 ENDCOLOR = \033[0;39m
 
-SRC_FILES	=	Main \
-				A_Materia \
-				Materia_Ice \
-				Materia_Cure \
-				Character
+SRC_FILES	=	main \
+				AMateria \
+				Cure \
+				Ice \
+				Character \
+				MateriaSource \
+
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .cpp, $(SRC_FILES)))
 OBJ			= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
