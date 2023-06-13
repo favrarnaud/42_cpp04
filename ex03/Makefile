@@ -22,7 +22,7 @@ GREEN = \033[0;92m
 YELLOW = \033[0;93m
 ENDCOLOR = \033[0;39m
 
-SRC_FILES	=	main \
+SRC_FILES	=	Main \
 				AMateria \
 				Cure \
 				Ice \
